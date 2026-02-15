@@ -1,96 +1,60 @@
-import turtle
+# Case-study #1
+# Developers: Bogolyubov I., Pisarenko D.
+#
 
+import turtle
 
 t = turtle.Turtle()
 turtle.setup(width=1200, height=1000)
 
 
-def triangle(vertices,color,v):
+def polyhedron(vertices,color,stop):
+    """
+    Function, drawing polyhedron.
+    :param vertices: a list consisting of the coordinates of the polyhedron's vertices;
+                     the function will traverse the vertices one by one
+    :param color: fill color
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open
+    :return: None
+    """
     t.speed(10)
     t.fillcolor(color)
     t.begin_fill()
     t.penup()
     t.goto(vertices[0])
     t.pendown()
-    t.goto(vertices[1])
-    t.goto(vertices[2])
-    t.goto(vertices[0])
+    for vertex in vertices[1:] + [vertices[0]]:
+        t.goto(vertex)
     t.end_fill()
-    t.setheading(90)
-    if v==1:
-        turtle.done()
-
-
-def square(x,y,a,color,v):
-    t.speed(10)
     t.penup()
-    t.goto(x,y)
-    t.pendown()
-    t.fillcolor(color)
-    t.begin_fill()
-    t.forward(a)
-    t.right(90)
-    t.forward(a)
-    t.right(90)
-    t.forward(a)
-    t.right(90)
-    t.forward(a)
-    t.right(90)
-    t.end_fill()
-    t.setheading(90)
-    if v==1:
+    if stop==1:
         turtle.done()
 
 
-def rhombus(x,y,a,angle0,angle1,angle2,color,v):
-    t.speed(10)
-    t.penup()
-    t.goto(x,y)
-    t.pendown()
-    t.fillcolor(color)
-    t.begin_fill()
-    t.setheading(angle0)
-    t.forward(a)
-    t.right(angle1)
-    t.forward(a)
-    t.right(angle2)
-    t.forward(a)
-    t.right(angle1)
-    t.forward(a)
-    t.end_fill()
-    t.setheading(90)
-    if v==1:
-        turtle.done()
-
-
-def parallelogram(x,y,a1,a2,angle,color,v):
-    t.speed(10)
-    t.penup()
-    t.goto(x,y)
-    t.pendown()
-    t.fillcolor(color)
-    t.begin_fill()
-    t.forward(a1)
-    t.left(180-angle)
-    t.forward(a2)
-    t.left(angle)
-    t.forward(a1)
-    t.left(180-angle)
-    t.forward(a2)
-    t.end_fill()
-    t.setheading(90)
-    if v==1:
-        turtle.done()
-
-
-def general_tengram():
-    triangle([(0, 0), (50 * (2 ** 0.5), 0), (25 * (2 ** 0.5), 25 * (2 ** 0.5))], 'pink',0)
-    rhombus(25*(2**0.5),25*(2**0.5),50,45,90,90,'blue',0)
-    triangle([(50 * (2 ** 0.5), 0),(100*2**0.5,0),(100*2**0.5,50*2**0.5)],'yellow',0)
-    triangle([(0,0),(50*2**0.5,50*2**0.5),(0,100*2**0.5)],'darkorchid1',0)
-    triangle([(0,100*2**0.5),(100*2**0.5,100*2**0.5),(50*2**0.5,50*2**0.5)],'lightblue',0)
-    triangle([(50*2**0.5,50*2**0.5),(75*2**0.5,75*2**0.5),(75*2**0.5,25*2**0.5)],'darkolivegreen1',0)
-    parallelogramm((100*2**0.5),(50*2**0.5),(50*2**0.5),50,45,'lightyellow',1)
+def tengram():
+    """
+    Function, drawing tengram.
+    Summary of colors:
+    RED - #F72A49
+    YELLOW - #FEDD14
+    PINK - #EF66E8
+    ORANGE - #FF7C00
+    LIGHT ORANGE - #FBBF9B
+    GREEN - #8ECC23
+    VIOLET - #A250E2
+    BLUE - #4FBAE8
+    DARK BLUE - #3755A4
+    :return: None
+    """
+    polyhedron([(0, 0), (-150, 150), (150, 150)], '#F72A49', 0)
+    polyhedron([(0, 0), (150, 150), (150, -150)], '#FEDD14', 0)
+    polyhedron([(0, 0), (-75, 75), (-75, -75)], '#4FBAE8', 0)
+    polyhedron([(0, 0), (-75, -75), (0, -150), (75, -75)], '#FF7C00', 0)
+    polyhedron([(-150, 150), (-150, 0), (-75, -75), (-75, 75)], '#8ECC23', 0)
+    polyhedron([(0, -150), (150, -150), (75, -75)], '#FBBF9B', 0)
+    polyhedron([(-150, 0), (-150, -75), (-75, -75)], '#EF66E8', 0)
+    polyhedron([(-150, -150), (-75, -150), (-75, -75), (-150, -75)], '#3755A4', 0)
+    polyhedron([(-75, -75), (-75, -150), (0, -150)], '#A250E2', 1)
 
 
 def picture1():
@@ -109,22 +73,8 @@ def picture4():
     pass
 
 
-def picture5():
-    pass
-
-
-def picture6():
-    pass
-
-
-def picture7():
-    pass
-
-
-def picture8():
-    pass
-
 def main():
     pass
 
-main()
+if __name__ == '__main__':
+    main()
