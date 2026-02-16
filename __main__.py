@@ -128,18 +128,48 @@ def mountains(stop):
         turtle.done()
 
 
-def picture3():
-    pass
+def table(stop):
+    """
+    Function, drawing table.
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open
+    :return: None
+    """
+    polyhedron(ratio(1 ,50 , 100, [(-375,-375), (-375,-425), (-425,-425,), (-425,-375)]), '#EF66E8')
+    polyhedron(ratio(1 ,50 , 100, [(-425, -425), (-425,-475), (-375, -425)]), '#4FBAE8')
+    polyhedron(ratio(1 ,50 , 100, [(-425, -475), (-425, -375), (-525, -375)]), '#8ECC23')
+    polyhedron(ratio(1 ,50 , 100, [(-525, -375), (-575,-375), (-525, -425), (-475, -425)]), '#FEDD14')
+    polyhedron(ratio(1 ,50 , 100, [(-575, -375), (-575, -425), (-525,-425)]), '#3755A4')
+    polyhedron(ratio(1 ,50 , 100, [(-575, -425), (-475, -425), (-525, -475)]), '#FBBF9B')
+    polyhedron(ratio(1 ,50 , 100, [(-475, -425), (-550, -500), (-400,-500)]), '#F72A49')
+    title(-425, -437.5, 'TABLE')
+    if stop == 1:
+        turtle.done()
 
 
-def picture4():
-    pass
+def airplane(stop):
+    """
+    Function, drawing airplane.
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open
+    :return: None
+    """
+    polyhedron(ratio(1.1 ,50 , 100, [(200, -375), (250, -375), (250, -425)]), '#4FBAE8')
+    polyhedron(ratio(1.1, 50, 100, [(250, -415), (300, -415), (300, -385)]), '#3755A4')
+    polyhedron(ratio(1.1, 50, 100, [(250, -415), (250, -385), (300, -385)]), '#F72A49')
+    polyhedron(ratio(1.1, 50, 100, [(300, -385), (330, -385), (330, -415), (300,-415)]), '#A250E2')
+    polyhedron(ratio(1.1, 50, 100, [(330, -400), (330, -350), (380, -400)]), '#FEDD14')
+    polyhedron(ratio(1.1, 50, 100, [(330, -400), (330, -450), (380, -400)]),'#8ECC23')
+    polyhedron(ratio(1.1, 50, 100, [(380, -400), (355, -375), (400, -375), (425, -400)]), '#FF7C00')
+    title(387.5, -437.5, 'AIRPLANE')
+    if stop == 1:
+        turtle.done()
 
 
 def main():
     tengram(0)
     jet(0)
-    mountains(1)
+    mountains(0)
+    table(0)
+    airplane(1)
 
 if __name__ == '__main__':
     main()
