@@ -22,12 +22,13 @@ DARK BLUE - #3755A4
 """
 
 
-def polyhedron(vertices, color):
+def polyhedron(vertices, color, stop=0):
     """
     Function, drawing polyhedron.
     :param vertices: a list consisting of the coordinates of the polyhedron's vertices;
                      the function will traverse the vertices one by one
     :param color: fill color
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open (the default value is 0)
     :return: None
     """
     t.speed(10)
@@ -40,21 +41,27 @@ def polyhedron(vertices, color):
         t.goto(vertex)
     t.end_fill()
     t.penup()
+    if stop:
+        turtle.done()
 
 
-def title(x, y, text):
+def title(x, y, text, stop=0):
     """
     Function, drawing title.
     :param x: the x coordinate of the title center
     :param y: the y coordinate of the title center
     :param text: the text of the title
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open (the default value is 0)
     :return: None
     """
+    t.speed(10)
     t.penup()
     t.goto(x, y)
     t.pendown()
     t.write(text, align='center', font=('Times New Roman', 20, 'bold'))
     t.penup()
+    if stop:
+        turtle.done()
 
 
 def ratio(k, a, b, vertices):
@@ -72,10 +79,10 @@ def ratio(k, a, b, vertices):
     return result
 
 
-def tengram(stop):
+def tengram(stop=0):
     """
     Function, drawing tengram.
-    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open (the default value is 0)
     :return: None
     """
     polyhedron([(0, 0), (-150, 150), (150, 150)], '#F72A49')
@@ -88,14 +95,14 @@ def tengram(stop):
     polyhedron([(-150, -150), (-75, -150), (-75, -75), (-150, -75)], '#3755A4')
     polyhedron([(-75, -75), (-75, -150), (0, -150)], '#A250E2')
     title(0, -200, 'TENGRAM PUZZLE')
-    if stop==1:
+    if stop:
         turtle.done()
 
 
-def jet(stop):
+def jet(stop=0):
     """
     Function, drawing jet.
-    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open (the default value is 0)
     :return: None
     """
     polyhedron(ratio(0.5, -225, 175, [(-375, 325), (-525, 475), (-225, 475)]), '#4FBAE8')
@@ -106,32 +113,32 @@ def jet(stop):
     polyhedron(ratio(0.5, -225, 175, [(-300, 400), (-88, 400), (-88, 612)]), '#A250E2')
     polyhedron(ratio(0.5, -225, 175, [(-375, 550), (-450, 475), (-300, 475)]), '#FBBF9B')
     title(-412.5, 237.5, 'JET')
-    if stop==1:
+    if stop:
         turtle.done()
 
 
-def mountains(stop):
+def mountains(stop=0):
     """
     Function, drawing mountains.
-    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open (the default value is 0)
     :return: None
     """
     polyhedron(ratio(0.6, 175, 175, [(375, 325), (450, 400), (450, 250)]), '#3755A4')
     polyhedron(ratio(0.6, 175, 175, [(375, 325), (450, 250), (375, 250)]), '#4FBAE8')
-    polyhedron(ratio(0.6, 175, 175, [(375, 325), (425, 375), (375, 396), (325, 375)]), '#8ECC23')
+    polyhedron(ratio(0.6, 175, 175, [(375, 325), (425, 375), (375, 425), (325, 375)]), '#8ECC23')
     polyhedron(ratio(0.6, 175, 175, [(375, 325), (375, 250), (300, 325), (300, 400)]), '#FF7C00')
     polyhedron(ratio(0.6, 175, 175, [(375, 250), (300, 250), (300, 325)]), '#A250E2')
     polyhedron(ratio(0.6, 175, 175, [(300, 250), (300, 400), (150, 250)]), '#F72A49')
     polyhedron(ratio(0.6, 175, 175, [(450, 250), (450, 400), (600, 250)]), '#FEDD14')
     title(400, 237.5, 'MOUNTAINS')
-    if stop == 1:
+    if stop:
         turtle.done()
 
 
-def table(stop):
+def table(stop=0):
     """
     Function, drawing table.
-    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open (the default value is 0)
     :return: None
     """
     polyhedron(ratio(1 ,50 , 100, [(-375,-375), (-375,-425), (-425,-425,), (-425,-375)]), '#EF66E8')
@@ -142,14 +149,14 @@ def table(stop):
     polyhedron(ratio(1 ,50 , 100, [(-575, -425), (-475, -425), (-525, -475)]), '#FBBF9B')
     polyhedron(ratio(1 ,50 , 100, [(-475, -425), (-550, -500), (-400,-500)]), '#F72A49')
     title(-425, -437.5, 'TABLE')
-    if stop == 1:
+    if stop:
         turtle.done()
 
 
-def airplane(stop):
+def airplane(stop=0):
     """
     Function, drawing airplane.
-    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open (the default value is 0)
     :return: None
     """
     polyhedron(ratio(1.1 ,50 , 100, [(200, -375), (250, -375), (250, -425)]), '#4FBAE8')
@@ -160,16 +167,24 @@ def airplane(stop):
     polyhedron(ratio(1.1, 50, 100, [(330, -400), (330, -450), (380, -400)]),'#8ECC23')
     polyhedron(ratio(1.1, 50, 100, [(380, -400), (355, -375), (400, -375), (425, -400)]), '#FF7C00')
     title(387.5, -437.5, 'AIRPLANE')
-    if stop == 1:
+    if stop:
         turtle.done()
 
 
-def main():
-    tengram(0)
-    jet(0)
-    mountains(0)
-    table(0)
-    airplane(1)
+def main(stop=0):
+    """
+    Main function.
+    :param stop: accepts two arguments: 0 - close the window, 1 - leave it open (the default value is 0)
+    :return: None
+    """
+    tengram()
+    jet()
+    mountains()
+    table()
+    airplane()
+    if stop:
+        turtle.done()
+
 
 if __name__ == '__main__':
-    main()
+    main(1)
